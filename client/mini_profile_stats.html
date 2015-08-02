@@ -1,0 +1,17 @@
+<template name="miniProfileStats">
+    <!-- profile stats -->
+    {{#with currentUser}}
+        <table id="profile-stats" class="table">
+            <tr class="head">
+                <td><strong>Tweets</strong></td>
+                <td><strong>Following</strong></td>
+                <td><strong>Followers</strong></td>
+            </tr>
+            <tr class="numbers">
+                <td>{{tweetCount}}</td>
+                <td>{{followingCount}}</td>
+                <td>{{followerCount}}</td>
+            </tr>
+        </table>
+    {{/with}}
+</template>

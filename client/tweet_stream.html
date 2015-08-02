@@ -6,30 +6,9 @@
         <div id="profile-panel" class="panel panel-default">
           <div class="media panel-body">
 
-            <!-- profile photo -->
-            <a class="pull-left" href="#">
-              <img class="media-object" src="https://pbs.twimg.com/profile_images/3268182541/8f4fd62e092b959e4e8970a34be03619_bigger.jpeg" alt="...">
-            </a>
+            {{> miniProfile}}
 
-            <!-- profile information -->
-            <div class="media-body">
-              <span class="username"><strong>amanda saffer</strong></span> <br>
-              <span class="handle">@12pixels</span>
-            </div>
-
-            <!-- profile stats -->
-            <table id="profile-stats" class="table">
-              <tr class="head">
-                <td><strong>Tweets</strong></td>
-                <td><strong>Following</strong></td>
-                <td><strong>Followers</strong></td>
-              </tr>
-              <tr class="numbers">
-                <td>500</td>
-                <td>240</td>
-                <td>1,600</td>
-              </tr>
-            </table>
+            {{> miniProfileStats}}
           </div>
 
           <!-- compose a tweet -->

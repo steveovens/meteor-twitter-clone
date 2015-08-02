@@ -2,6 +2,9 @@ Template.tweetStream.helpers({
     //add you helpers here
     tweets: function() {
         return Tweets.find({},{sort: {tweetedAt: -1}});
+    },
+    tweetCount: function() {
+        return Meteor.user() ? Meteor.user().tweetCount : 0;
     }
 });
 
@@ -16,7 +19,7 @@ Template.tweetStream.events({
                     template.$('.tweet-text').val(null);
                 } else {
                     CoffeeAlerts.warning('There was a problem adding your tweet. Try again later.');
-                    console.log(error);
+                    console.log(error); //TODO: add Better error logging!
                 }
             });
 

@@ -1,0 +1,14 @@
+<template name="miniProfile">
+    {{#with currentUser}}
+        <!-- profile photo -->
+        <a class="pull-left" href="#">
+            <img class="media-object" src="https://pbs.twimg.com/profile_images/3268182541/8f4fd62e092b959e4e8970a34be03619_bigger.jpeg" alt="...">
+        </a>
+
+        <!-- profile information -->
+        <div class="media-body">
+            <span class="username"><strong>{{profile.name}}</strong></span> <br>
+            <span class="handle">@{{username}}</span>
+        </div>
+    {{/with}}
+</template>

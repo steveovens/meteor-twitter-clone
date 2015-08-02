@@ -10,23 +10,31 @@
       <!-- makes room for profile photo to be pulled up -->
       <li class="img-mover hidden-xs"></li>
 
+    {{#with user}}
       <li>
         <span class="info">Tweets</span>
-        <span class="number">500</span>
+        <span class="number">{{tweetCount}}</span>
       </li>
       <li>
         <span class="info">Following</span>
-        <span class="number">240</span>
+        <span class="number">{{followingCount}}</span>
       </li>
       <li>
         <span class="info">Followers</span>
-        <span class="number">1,600</span>
+        <span class="number">{{followerCount}}</span>
       </li>
+    {{/with}}
     </ul>
 
     <ul class="nav navbar-nav navbar-right">
       <!-- follow button -->
-      <li class="follow-me"><button class="btn btn-primary"><i class="fa fa-plus"></i>&nbsp; Follow</button></li>
+        {{#if notMe}}
+            {{#if following}}
+                <li class="follow-me"><button class="btn btn-danger" data-action="unfollow"><i class="fa fa-minus"></i>&nbsp; Unfollow</button></li>
+            {{else}}
+                <li class="follow-me"><button class="btn btn-primary" data-action="follow"><i class="fa fa-plus"></i>&nbsp; Follow</button></li>
+            {{/if}}
+        {{/if}}
     </ul>
 
     <!-- following button -->
@@ -42,21 +50,22 @@
   <div class="row">
     <div class="col-md-4 col-lg-3">
 
+        {{#with user}}
       <!-- profile info - photo, description, location, website, etc. -->
       <div class="profile-information">
         <img src="https://pbs.twimg.com/profile_images/3268182541/8f4fd62e092b959e4e8970a34be03619_400x400.jpeg" alt="" class="profile-image">
 
-        <h3 class="username">amanda saffer</h3>
-        <span class="handle">@12pixels</span>
-        <p class="user-profile-description">designs &amp; develops websites. spends a lot of time in photoshop. likes science, cats, and magic the gathering.</p>
+        <h3 class="username">{{profile.name}}</h3>
+        <span class="handle">@{{username}}</span>
+        <p class="user-profile-description">{{profile.description}}</p>
 
         <ul class="user-profile-info">
-          <li><i class="fa fa-fw fa-map-marker"></i> Austin, TX</li>
-          <li><i class="fa fa-fw fa-link"></i> <a href="http://amandasaffer.com">amandasaffer.com</a></li>
-          <li><i class="fa fa-fw fa-clock-o"></i> Joined April 05, 2014</li>
+          <li><i class="fa fa-fw fa-map-marker"></i>{{profile.location}}</li>
+          <li><i class="fa fa-fw fa-link"></i> <a href="{{profile.website}}">{{profile.website}}</a></li>
+          <li><i class="fa fa-fw fa-clock-o"></i> Joined {{profile.joinedDate}}</li>
         </ul>
       </div>
-
+        {{/with}}
     </div>
 
     <div class="col-md-8 col-lg-6">
